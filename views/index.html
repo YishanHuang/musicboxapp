@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% if !user %}
+	<h2>Welcome to music box! Please log in.</h2>
+{% else %}
+	<img src="{{ user.photos }}" />
+	<h2>Hello, {{ user.displayName }}.</h2>
+	<p>Your email is {{ user.emails[0].value }}</p>
+	<p> Your birthday is {{ user._json.birthdate }}. </p>
+	<p> You have {{ user.followers }} followers.</p>
+{% endif %}
+{% endblock %}
